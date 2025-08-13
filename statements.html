@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>로그인</h1>
+    <form>
+      <label for="userName">username:</label>
+      <input type="text" id="userName" name="userName" /> <br />
+      <label for="password">password:</label>
+      <input type="password" id="password" name="password" /><br />
+      <button type="button" id="loginBtn">login</button>
+    </form>
+    <p id="message"><!-- js출력 --></p>
+    <script>
+      // 저장된 사용자 아이디랑 비밀번호를 더미데이터에 저장한다.
+      const storeUser = {
+        name: "haglass",
+        password: "1234",
+      };
+      // 버튼 저장
+      const loginBtn = document.querySelector("#loginBtn");
+      //유효성검사한 메세지 출력
+      const message = document.querySelector("#message");
+      loginBtn.addEventListener("click", function () {
+        // alert("click")
+        // 사용자가 입력하는 정보 저장
+        const userName = document.querySelector("#userName").value;
+
+        const userPassword = document.querySelector("#password").value;
+        console.log(userPassword);
+        if (
+          userName !== storeUser.name &&
+          userPassword !== storeUser.password
+        ) {
+          message.textContent = "이름과 비밀번호가 일치하지 않습니다.";
+        } else if (userName !== storeUser.name) {
+          message.textContent = "이름이 일치하지 않습니다.";
+        } else if (password !== storeUser.password) {
+          message.textContent = "비밀번호가 일치하지 않습니다.";
+        } else {
+          message.textContent = "로그인 되었습니다.";
+        }
+      });
+    </script>
+  </body>
+</html>
